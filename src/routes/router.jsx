@@ -1,15 +1,33 @@
 import { createBrowserRouter } from 'react-router-dom';
-import App from '../App';
-import Nav from '../components/Nav/Nav';
+import Car from '../pages/Car/Car';
+import Attractions from '../pages/Attractions/Attractions';
+import Layout from '../components/Layout/Layout';
+import Home from '../pages/Home/Home';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: (
+            <Layout>
+                <Home />
+            </Layout>
+        ),
     },
     {
-        path: 'nav',
-        element: <Nav />,
+        path: '/car',
+        element: (
+            <Layout>
+                <Car />
+            </Layout>
+        ),
+    },
+    {
+        path: '/attractions',
+        element: (
+            <Layout>
+                <Attractions />
+            </Layout>
+        ),
     },
 ]);
 

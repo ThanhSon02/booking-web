@@ -1,21 +1,28 @@
+import { NavLink } from 'react-router-dom';
+import { Attractions, Car, Stays } from '../../assets/icons';
+import './nav.scss';
+
 function Nav() {
     return (
-        <div>
-            <ul className="nav nav-pills">
+        <div className="nav">
+            <ul className="nav-container">
                 <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="#">
-                        Lưu trú
-                    </a>
+                    <NavLink to={'/'}>
+                        <Stays />
+                        <span>Lưu trú</span>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link active" href="#">
-                        Thuê xe
-                    </a>
+                    <NavLink to={'/car'}>
+                        <Car />
+                        <span>Thuê xe</span>
+                    </NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#">
-                        Địa điểm thăm quan
-                    </a>
+                    <NavLink to={'/attractions'}>
+                        <Attractions />
+                        <span>Địa điểm thăm quan</span>
+                    </NavLink>
                 </li>
             </ul>
         </div>

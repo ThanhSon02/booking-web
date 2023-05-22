@@ -1,20 +1,26 @@
-import { Logo } from '../../assets/icons';
+import { Link } from 'react-router-dom';
+import { Logo, User } from '../../assets/icons';
+import './header.scss';
+import { Button } from 'antd/es/radio';
 
 function Header() {
     return (
         <div className="header">
-            <div className="container py-3 px-4-5">
-                <div className="d-flex align-items-center">
-                    <div className="col">
-                        <Logo />
+            <div className="header-container">
+                <Link to={'/'} className="logo">
+                    <Logo width="120" height="20" />
+                </Link>
+                <div className="login-icon">
+                    <div className="mobile">
+                        <User />
                     </div>
-                    <div className="col d-flex justify-content-end gap-4">
-                        <button type="button" className="btn">
-                            Đăng ký
-                        </button>
-                        <button type="button" className="btn">
-                            Đăng nhập
-                        </button>
+                    <div className="desktop btn-header-container">
+                        <div className="btn-wrap">
+                            <Button className="btn">Đăng ký</Button>
+                        </div>
+                        <div className="btn-wrap">
+                            <Button className="btn">Đăng nhập</Button>
+                        </div>
                     </div>
                 </div>
             </div>

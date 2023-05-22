@@ -1,0 +1,37 @@
+@import '../../style/style.scss';
+.header {
+    background-color: $primary_color;
+    .header-container {
+        padding: 16px 16px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-icon {
+            .btn-header-container {
+                .btn-wrap:first-child {
+                    margin-right: 8px;
+                }
+                .btn {
+                    color: $bg-btn;
+                    padding: 4px 12px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    background-color: $white;
+                    border: none;
+                    border-radius: 2px;
+                    height: 36px;
+                    &:hover {
+                        opacity: 0.9;
+                    }
+                }
+            }
+        }
+    }
+}
