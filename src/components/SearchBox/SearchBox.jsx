@@ -1,20 +1,52 @@
 import { CloseIcon, SearchIcon } from '../../assets/icons';
-import { DatePicker, Modal } from 'antd';
+import { DatePicker } from 'antd';
 const { RangePicker } = DatePicker;
 import './SearchBox.scss';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from 'antd/es/radio';
 /* eslint-disable no-unused-vars */
 // eslint-disable-next-line react/prop-types
 function Search({ stays, cars, attractions }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [adults, setAdults] = useState(0);
+    const [children, setChildren] = useState(0);
+    const [rooms, setRooms] = useState(0);
+
+    const modalRef = useRef();
+
+    useEffect(() => {
+        if(modalRef.current && !modalRef.current.contains(event.target)) {
+            alert("You clicked outside of me!");
+        }
+    }, [modalRef])
+    
+
+    const IncreaseAdults = () => {
+        setAdults(adults + 1);
+    }
+
+    const IncreaseChildren = () => {
+        setChildren(children + 1);
+    }
+    
+    const IncreaseRooms = () => {
+        setRooms(rooms + 1);
+    }
+
+    const DecreaseAdults = () => {
+        setAdults(adults - 1);
+    }
+
+    const DecreaseChildren = () => {
+        setChildren(children - 1);
+    }
+
+    const DecreaseRooms = () => {
+        setRooms(rooms - 1);
+    }
 
     const showModal = () => {
         setIsModalOpen(true);
-    };
-
-    const handleOk = () => {
-        setIsModalOpen(false);
     };
 
     const handleCancel = () => {
@@ -22,7 +54,7 @@ function Search({ stays, cars, attractions }) {
     };
     if (stays) {
         return (
-            <div className="home-search">
+            <div onAuxClick={handleCancel} className="home-search">
                 <div className="home-search-text">
                     <h1 className="home-search-title">Tìm kiếm</h1>
                     <p className="home-search-desc">
@@ -63,15 +95,15 @@ function Search({ stays, cars, attractions }) {
                         <div className="product">
                             <label onClick={showModal} className="adult">
                                 <p className="product-text">Người lớn</p>
-                                <label className="product-text">2</label>
+                                <label className="product-text">{adults}</label>
                             </label>
                             <label className="child">
                                 <p className="product-text">Trẻ em</p>
-                                <label className="product-text">2</label>
+                                <label className="product-text">{children}</label>
                             </label>
                             <label className="room">
                                 <p className="product-text">Phòng</p>
-                                <label className="product-text">2</label>
+                                <label className="product-text">{rooms}</label>
                             </label>
                         </div>
                         <div className="search-btn">
@@ -80,35 +112,35 @@ function Search({ stays, cars, attractions }) {
                     </div>
                 </form>
                 {isModalOpen && (
-                    <div className="modal">
+                    <div ref={modalRef} className="modal">
                         <div className="modal-container">
                             <div onClick={handleCancel} className="close-modal">
                                 <div className="close-modal-btn">
                                     <CloseIcon fill="#bdbdbd" />
                                 </div>
                             </div>
-                            <div clasName="modal-input">
+                            <div className="modal-input">
                                 <label>Adults</label>
-                                <div>
-                                    <Button>-</Button>
-                                    <span>2</span>
-                                    <Button>+</Button>
+                                <div className='modal-btn-container'>
+                                    <Button onClick={DecreaseAdults} disabled={adults === 0}>-</Button>
+                                    <span>{adults}</span>
+                                    <Button onClick={IncreaseAdults}>+</Button>
                                 </div>
                             </div>
                             <div className="modal-input">
                                 <label>Children</label>
-                                <div>
-                                    <Button>-</Button>
-                                    <span>2</span>
-                                    <Button>+</Button>
+                                <div className='modal-btn-container'>
+                                    <Button onClick={DecreaseChildren} disabled={children === 0}>-</Button>
+                                    <span>{children}</span>
+                                    <Button onClick={IncreaseChildren}>+</Button>
                                 </div>
                             </div>
                             <div className="modal-input">
                                 <label>Rooms</label>
-                                <div>
-                                    <Button>-</Button>
-                                    <span>2</span>
-                                    <Button>+</Button>
+                                <div className='modal-btn-container'>
+                                    <Button onClick={DecreaseRooms} disabled={rooms === 0}>-</Button>
+                                    <span>{rooms}</span>
+                                    <Button onClick={IncreaseRooms}>+</Button>
                                 </div>
                             </div>
                         </div>
