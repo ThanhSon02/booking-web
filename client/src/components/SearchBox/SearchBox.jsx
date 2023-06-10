@@ -54,8 +54,8 @@ function Search({ stays, cars, attractions }) {
     };
     if (stays) {
         return (
-            <div onAuxClick={handleCancel} className="home-search">
-                <div className="home-search-text">
+            <div className="home-search">
+                <div className="home-search-text mobile">
                     <h1 className="home-search-title">Tìm kiếm</h1>
                     <p className="home-search-desc">
                         Điểm đến, chỗ nghỉ, hay thậm chí là 1 địa chỉ
@@ -97,11 +97,11 @@ function Search({ stays, cars, attractions }) {
                                 <p className="product-text">Người lớn</p>
                                 <label className="product-text">{adults}</label>
                             </label>
-                            <label className="child">
+                            <label onClick={showModal} className="child">
                                 <p className="product-text">Trẻ em</p>
                                 <label className="product-text">{children}</label>
                             </label>
-                            <label className="room">
+                            <label onClick={showModal} className="room">
                                 <p className="product-text">Phòng</p>
                                 <label className="product-text">{rooms}</label>
                             </label>

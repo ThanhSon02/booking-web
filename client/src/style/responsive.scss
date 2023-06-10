@@ -36,6 +36,15 @@
     .desktop {
         display: flex;
     }
+    .home-search-form-container {
+        flex-direction: row !important;
+        .locate, .range-time, .product {
+            flex: 1;
+        }
+        .search-btn {
+            width: inherit !important;
+        }
+    }
 }
 
 // X-Large devices (large desktops, 1200px and up)

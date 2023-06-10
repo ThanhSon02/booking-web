@@ -1,0 +1,24 @@
+@import '../../style/style.scss';
+.slider-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    .slider-heading {
+        color: $input-color;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .slider-desc {
+        color: $desc-text;
+        margin-top: 4px;
+    }
+    .list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: auto;
+        width: 100%;
+        scroll-snap-type: x mandatory;
+        .item {
+            width: 30%;
+        }
+    }
+}

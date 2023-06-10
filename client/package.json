@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.7",
+    "@reduxjs/toolkit": "^1.9.5",
     "@wojtekmaj/react-daterange-picker": "^5.0.2",
     "antd": "^5.5.1",
     "axios": "^1.4.0",

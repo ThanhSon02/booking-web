@@ -10,7 +10,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    overflow: visible;
+    overflow: auto;
 }
 
 p {
@@ -19,6 +19,7 @@ p {
 
 .container {
     .content {
+        overflow: auto;
         padding: 0 16px;
     }
 }
